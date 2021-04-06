@@ -45,9 +45,7 @@ module ECCrypto
   end
 
   def self.sha256(base : Bytes | String) : String
-    hash = OpenSSL::Digest.new("SHA256")
-    hash.update(base)
-    hash.hexdigest
+    Digest::SHA256.hexdigest base
   end
 
   # Signs a message with a private key
